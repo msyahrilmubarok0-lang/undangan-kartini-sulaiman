@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071f18">
+<title>Kartini & Sulaiman — Undangan Pernikahan</title>
+<meta name="description" content="Undangan pernikahan Kartini & Sulaiman • 03 September 2026 • Medan">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-glow"></div>
+
+<section class="cover" id="cover">
+  <div class="cover-pattern"></div>
+  <div class="cover-content">
+    <div class="monogram">K <i>&</i> S</div>
+    <p class="eyebrow">THE WEDDING OF</p>
+    <h1>Kartini <span>&</span><br>Sulaiman</h1>
+    <div class="gold-line"></div>
+    <p class="date">03 · 09 · 2026</p>
+    <div id="guestGreeting" class="guest-greeting"></div>
+    <button id="openInvitation" class="primary-btn">
+      <span class="btn-icon">✦</span> Buka Undangan
+    </button>
+    <p class="hint">Geser untuk menikmati undangan kami</p>
+  </div>
+  <div class="cover-corner c1"></div><div class="cover-corner c2"></div>
+  <div class="cover-corner c3"></div><div class="cover-corner c4"></div>
+</section>
+
+<main id="main" class="is-hidden">
+  <header class="floating-nav">
+    <div class="brand">K <span>&</span> S</div>
+    <button id="soundToggle" class="sound-toggle" aria-label="Matikan suara video">🔊</button>
+  </header>
+
+  <section class="video-section section-reveal">
+    <div class="section-label">Our Wedding Film</div>
+    <div class="video-card">
+      <div class="video-topline"><span></span><small>KARTINI & SULAIMAN</small><span></span></div>
+      <video id="weddingVideo" playsinline preload="metadata">
+        <source src="undangan-kartini-sulaiman-web.mp4" type="video/mp4">
+        <source src="undangan-kartini-sulaiman.mp4" type="video/mp4">
+      </video>
+      <div class="video-controls">
+        <button id="playPause">❚❚</button>
+        <div class="progress"><div id="progressBar"></div></div>
+        <button id="muteBtn">🔊</button>
+      </div>
+    </div>
+    <p class="video-note">Suara yang terdengar berasal dari video undangan kami.</p>
+  </section>
+
+  <section class="quote section-reveal">
+    <div class="ornament">✦</div>
+    <p class="eyebrow">Do'a untuk Kedua Mempelai</p>
+    <h2 class="arabic">بارك الله لكما وبارك عليكما وجمع بينكما في خير</h2>
+    <p class="latin">Baarakallaahu lakumaa, wa baaraka 'alaikumaa, wa jama'a bainakumaa fii khair.</p>
+    <p class="translation">“Semoga Allah memberkahimu berdua, memberkahi atas kalian, dan mempersatukan kalian berdua dalam kebaikan.”</p>
+    <small>(HR. Abu Dawud)</small>
+  </section>
+
+  <section class="countdown section-reveal">
+    <p class="eyebrow">Save The Date</p>
+    <h2>Menuju Hari Bahagia</h2>
+    <p class="date-big">KAMIS, 03 SEPTEMBER 2026</p>
+    <div class="timer">
+      <div><b id="d">0</b><span>Hari</span></div>
+      <div><b id="h">0</b><span>Jam</span></div>
+      <div><b id="m">0</b><span>Menit</span></div>
+      <div><b id="s">0</b><span>Detik</span></div>
+    </div>
+  </section>
+
+  <section class="events section-reveal">
+    <div class="section-head">
+      <p class="eyebrow">Save The Date</p><h2>Detail Acara</h2>
+    </div>
+    <div class="event-grid">
+      <article class="event-card">
+        <div class="event-number">01</div><div class="event-symbol">☾</div>
+        <p class="event-label">AKAD NIKAH</p>
+        <h3>Kamis, 03 September 2026</h3>
+        <p class="time">09.00 WIB s/d selesai</p>
+        <div class="event-location"><b>Masjid As-Sakinah Perumahan Citra Garden</b><br>Jl. Letjend Jamin Ginting, Padang Bulan, Medan</div>
+        <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=GMX5%2BPFM%2C%20Medan">Buka Google Maps ↗</a>
+      </article>
+      <article class="event-card">
+        <div class="event-number">02</div><div class="event-symbol">✦</div>
+        <p class="event-label">RESEPSI</p>
+        <h3>Kamis, 03 September 2026</h3>
+        <p class="time">11.00 WIB s/d selesai</p>
+        <div class="event-location"><b>Jl. Bunga Cempaka No. 3A, Pasar 3</b><br>Padang Bulan, Medan</div>
+        <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Jl.%20Bunga%20Cempaka%20No.%203A%2C%20Pasar%203%2C%20Padang%20Bulan%2C%20Medan">Buka Google Maps ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="rsvp section-reveal">
+    <p class="eyebrow">Konfirmasi Kehadiran</p><h2>RSVP</h2>
+    <p class="sub">Kehadiran Anda merupakan kebahagiaan bagi kami.</p>
+    <form id="rsvpForm" class="form">
+      <input id="rsvpName" required placeholder="Nama lengkap">
+      <select id="rsvpAttendance" required><option value="">Konfirmasi kehadiran</option><option>Hadir</option><option>Tidak dapat hadir</option></select>
+      <select id="rsvpGuests"><option value="1">1 orang</option><option value="2">2 orang</option><option value="3">3 orang</option><option value="4">4 orang</option></select>
+      <button class="primary-btn" type="submit">Kirim Konfirmasi</button>
+      <p id="rsvpStatus" class="status"></p>
+    </form>
+    <p class="demo">Prototype: data RSVP tersimpan di perangkat ini. Untuk versi online, sambungkan ke Google Sheets/Apps Script.</p>
+  </section>
+
+  <section class="wishes section-reveal">
+    <p class="eyebrow">Do'a & Ucapan</p><h2>Ucapan Untuk Kami</h2>
+    <form id="wishForm" class="form">
+      <input id="wishName" required placeholder="Nama Anda">
+      <textarea id="wishText" required rows="4" placeholder="Tuliskan ucapan dan do'a terbaik..."></textarea>
+      <button class="primary-btn" type="submit">Kirim Ucapan</button>
+    </form>
+    <div id="wishList" class="wish-list"></div>
+  </section>
+
+  <section class="guests section-reveal">
+    <p class="eyebrow">Keluarga & Kerabat</p><h2>Turut Mengundang</h2>
+    <div class="guest-grid">
+      <div class="guest-box"><h3>Mempelai Wanita</h3><ol>
+        <li>Rosmawati & Suami <em>(Kakak)</em></li><li>Edi Mora, SE <em>(Abang)</em></li>
+        <li>Shahrida, S.Pd & Suami <em>(Kakak)</em></li><li>Syahlan Efendi <em>(Abang)</em></li>
+        <li>Doria Gultom <em>(Tante)</em></li><li>Nurasiah Gultom & Suami <em>(Tante)</em></li>
+        <li>Fatimah Gultom <em>(Tante)</em></li><li>Masrohima Hasibuan <em>(Bou)</em></li>
+        <li>Syahril Batubara <em>(Amangboru)</em></li><li>Fauziah Hasibuan <em>(Bou)</em></li>
+        <li>Dr. Syahril Aritonang, MHA & Istri <em>(Abang)</em></li>
+      </ol></div>
+      <div class="guest-box"><h3>Mempelai Pria</h3><ol>
+        <li>Sekar Wati & Suami <em>(Kakak)</em></li><li>Sutiono & Istri <em>(Abang)</em></li>
+        <li>Amri & Istri <em>(Abang)</em></li><li>Suci Harviati & Suami <em>(Kakak)</em></li>
+        <li>Eddi Saptono & Istri <em>(Abang)</em></li><li>Sari Dewi Murni & Suami <em>(Kakak)</em></li>
+        <li>Suparianto & Istri <em>(Abang)</em></li><li>Nurmala Sari & Suami <em>(Adik)</em></li>
+        <li>Kel. Besar Pesantren Hidayatullah Tanjung Morawa</li>
+        <li>Kel. Besar Pesantren Abu Bakar Ash-Shiddiq (ABBAS) L. Pakam</li>
+        <li>Kel. Besar Pesantren Ats-Tsaqofiy Tanjung Morawa</li>
+      </ol></div>
+    </div>
+  </section>
+
+  <footer><div class="footer-mark">K <i>&</i> S</div><p>Dengan penuh cinta dan syukur</p><h2>Kartini & Sulaiman</h2><p>03 September 2026 · Medan</p><div class="flourish">❦</div></footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
