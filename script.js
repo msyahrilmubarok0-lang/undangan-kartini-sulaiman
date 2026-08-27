@@ -229,25 +229,59 @@ document
 // UCAPAN & DOA
 // ===============================
 
+// ===============================
+// UCAPAN & DOA — GOOGLE SHEETS
+// ===============================
+
 const wishList = document.getElementById("wishList");
 
-function renderWishes() {
+async function loadWishes() {
 
-  const wishes =
-    JSON.parse(localStorage.getItem("ks_wishes") || "[]");
+  try {
 
-  wishList.innerHTML = wishes
-    .map(
-      (wish) => `
-        <article class="wish">
-          <b>${safe(wish.name)}</b>
-          <p>${safe(wish.text)}</p>
-        </article>
-      `
-    )
-    .join("");
+    const response = await fetch(
+      GOOGLE_SCRIPT_URL + "?action=wishes"
+    );
+
+    const data = await response.json();
+
+    if (!data.success) {
+      console.error(data.message);
+      return;
+    }
+
+    wishList.innerHTML = "";
+
+    data.wishes.forEach((wish) => {
+
+      const article = document.createElement("article");
+      article.className = "wish";
+
+      const name = document.createElement("b");
+      name.textContent = wish.nama;
+
+      const text = document.createElement("p");
+      text.textContent = wish.ucapan;
+
+      article.appendChild(name);
+      article.appendChild(text);
+
+      wishList.appendChild(article);
+
+    });
+
+  } catch (error) {
+
+    console.error(
+      "Gagal mengambil ucapan:",
+      error
+    );
+
+  }
 }
 
+
+// Kirim ucapan
 document
   .getElementById("wishForm")
   .addEventListener("submit", async (event) => {
@@ -255,48 +289,52 @@ document
     event.preventDefault();
 
     const name =
-      document.getElementById("wishName").value.trim();
+      document.getElementById("wishName")
+        .value.trim();
 
     const text =
-      document.getElementById("wishText").value.trim();
+      document.getElementById("wishText")
+        .value.trim();
 
     if (!name || !text) {
       return;
     }
 
-    const button = event.target.querySelector("button");
+    const button =
+      event.target.querySelector("button");
 
     button.disabled = true;
     button.textContent = "Mengirim...";
 
     try {
 
-      // Simpan lokal supaya ucapan langsung terlihat
-      const wishes =
-        JSON.parse(localStorage.getItem("ks_wishes") || "[]");
-
-      wishes.unshift({
-        name: name,
-        text: text
-      });
-
-      localStorage.setItem(
-        "ks_wishes",
-        JSON.stringify(wishes)
-      );
-
-      // Kirim ke Google Sheets
       await sendToGoogleSheets({
+
         nama: name,
+
         kehadiran: "",
+
         jumlah: "",
+
         ucapan: text,
+
         jenis: "UCAPAN"
+
       });
 
       event.target.reset();
 
-      renderWishes();
+      button.textContent = "Terkirim ✓";
+
+      // Tunggu sebentar agar Google Sheet selesai
+      setTimeout(async () => {
+
+        await loadWishes();
+
+        button.disabled = false;
+        button.textContent = "Kirim Ucapan";
+
+      }, 800);
 
     } catch (error) {
 
@@ -306,16 +344,20 @@ document
         "Ucapan gagal dikirim. Silakan coba lagi."
       );
 
+      button.disabled = false;
+      button.textContent = "Kirim Ucapan";
+
     }
 
-    button.disabled = false;
-    button.textContent = "Kirim Ucapan";
   });
 
-renderWishes();
 
-// ===============================
-// KEAMANAN NAMA TAMU
+// Ambil ucapan saat website dibuka
+loadWishes();
+
+
+// Refresh ucapan setiap 30 detik
+setInterval(loadWishes, 30000);
 // ===============================
 
 function safe(text) {
